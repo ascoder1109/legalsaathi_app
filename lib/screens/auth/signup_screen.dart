@@ -88,6 +88,7 @@ class SignupScreen extends StatelessWidget {
                     height: 16,
                   ),
                   const TextField(
+                    obscureText: true,
                     decoration: InputDecoration(
                       label: Text("Password"),
                       hintText: "Enter your password",
@@ -105,6 +106,7 @@ class SignupScreen extends StatelessWidget {
                     height: 16,
                   ),
                   const TextField(
+                    obscureText: true,
                     decoration: InputDecoration(
                       label: Text("Confirm Password"),
                       hintText: "Re-enter your password",
