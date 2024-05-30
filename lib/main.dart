@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
 import 'package:legalsaathi/screens/auth/login_screen.dart';
 import 'package:legalsaathi/screens/auth/signup_screen.dart';
+import 'package:legalsaathi/screens/individual/individual_dashboard.dart';
+import 'package:legalsaathi/screens/individual/individual_main_scaffold.dart';
 import 'package:legalsaathi/splash_screen.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignupScreen(),
+      home: const IndividualMainScaffold(),
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: kBlack,
