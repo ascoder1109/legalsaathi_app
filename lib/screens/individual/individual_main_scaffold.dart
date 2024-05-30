@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
-import 'package:legalsaathi/screens/common/ongoing_cases.dart';
-import 'package:legalsaathi/screens/common/past_verdicts_page.dart';
+import 'package:legalsaathi/screens/common/popular_case_screen.dart';
 import 'package:legalsaathi/screens/common/search_page.dart';
 import 'package:legalsaathi/screens/individual/individual_dashboard.dart';
 import 'package:legalsaathi/screens/individual/widgets/individual_bottom_navigation_bar.dart';
@@ -29,11 +28,10 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
       case 1:
         return SearchPage(); // Replace with your actual widget
       case 2:
-        return PastVerdictsPage(); // Replace with your actual widget
+        return PopularCaseScreen(); // Replace with your actual widget
       case 3:
-        return PastVerdictsPage(); // Replace with your actual widget
-      case 4:
-        return OngoingCases(); // Replace with your actual widget
+        return PopularCaseScreen(); // Replace with your actual widget
+      // Replace with your actual widget
       default:
         return IndividualDashboard();
     }
@@ -45,7 +43,10 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
       backgroundColor: kWhite,
       appBar: AppBar(
         backgroundColor: kWhite,
-        title: const Text("Hello User "),
+        title: const Text(
+          "Hello User ",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         automaticallyImplyLeading: false,
         actions: [
           const Padding(

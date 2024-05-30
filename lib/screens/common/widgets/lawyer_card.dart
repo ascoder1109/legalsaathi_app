@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 
 class LawyerCard extends StatelessWidget {
   const LawyerCard({super.key});
@@ -82,14 +83,35 @@ class LawyerCard extends StatelessWidget {
                       const SizedBox(
                         height: 12,
                       ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "View Profile",
-                          style: TextStyle(color: kWhite),
-                        ),
-                        style: ButtonStyle(
-                            backgroundColor: WidgetStateProperty.all(kBlack)),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, Routes.toLawyerScreenFileCase);
+                            },
+                            child: const Text(
+                              "View Profile",
+                              style: TextStyle(color: kWhite),
+                            ),
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    WidgetStateProperty.all(kBlack)),
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          OutlinedButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Chat",
+                              style: TextStyle(color: kBlack),
+                            ),
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all(kWhite),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   )

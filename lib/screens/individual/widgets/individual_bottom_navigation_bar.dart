@@ -18,12 +18,10 @@ class IndividualBottomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
             icon: Icon(Icons.dashboard), label: "Dashboard"),
         BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+        // BottomNavigationBarItem(
+        //     icon: Icon(Icons.add_circle), label: "File Case"),
         BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle), label: "File Case"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.description_outlined), label: "Past Verdicts"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.timelapse_sharp), label: "Ongoing Cases"),
+            icon: Icon(Icons.description_outlined), label: "Popular Cases"),
       ],
       currentIndex: selectedIndex, // Set the initial selected index
       selectedItemColor: kBlack, // Set the overall selected item color

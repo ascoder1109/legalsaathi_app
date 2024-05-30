@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 import 'package:svg_flutter/svg.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class SignupScreen extends StatelessWidget {
         statusBarColor: Colors.transparent,
         statusBarBrightness: Brightness.dark));
     return Scaffold(
+      backgroundColor: kWhite,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -135,12 +137,38 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.popAndPushNamed(context, Routes.login);
+                      },
+                      child: const Text(
+                        "Already have an account? Log In Here!",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(
-              height: 80,
+              height: 20,
             ),
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.popAndPushNamed(
+                      context, Routes.individualMainScaffold);
+                },
+                child: const Text(
+                  "Skip",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            )
           ],
         ),
       ),

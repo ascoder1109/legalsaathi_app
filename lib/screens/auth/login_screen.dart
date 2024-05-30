@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 import 'package:svg_flutter/svg.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class LoginScreen extends StatelessWidget {
         statusBarColor: Colors.transparent,
         statusBarBrightness: Brightness.dark));
     return Scaffold(
+      backgroundColor: kWhite,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -94,7 +96,9 @@ class LoginScreen extends StatelessWidget {
               ),
               Center(
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, Routes.signup);
+                  },
                   child: const Text(
                     "Don't have an account? Sign Up Here!",
                     style: TextStyle(fontWeight: FontWeight.bold),
