@@ -25,12 +25,12 @@ class NextAppearenceIndividualCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Date: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "29-May-2024",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -38,12 +38,12 @@ class NextAppearenceIndividualCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Time: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "11:00 am",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -51,12 +51,12 @@ class NextAppearenceIndividualCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Location: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Siliguri Court",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),

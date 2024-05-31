@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "824436368646",
+    "project_id": "legalsaathi-e6ec1",
+    "storage_bucket": "legalsaathi-e6ec1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824436368646:android:60a5959a16235d96d7aa87",
+        "android_client_info": {
+          "package_name": "com.example.legalsaathi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZGmUdm-Ikwsh6ZRPfBtkhkEnXa-sRvLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

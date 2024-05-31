@@ -44,7 +44,7 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
       appBar: AppBar(
         backgroundColor: kWhite,
         title: const Text(
-          "Hello User ",
+          "LegalSaathi",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         automaticallyImplyLeading: false,

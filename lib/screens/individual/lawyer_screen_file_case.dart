@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 import 'package:legalsaathi/screens/lawyer/widgets/lawyer_about_me_card.dart';
 
 class LawyerScreenFileCase extends StatelessWidget {
@@ -19,6 +20,7 @@ class LawyerScreenFileCase extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
+
           Center(
             child: CircleAvatar(
               child: SizedBox(
@@ -55,6 +57,40 @@ class LawyerScreenFileCase extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStateProperty.all(kBlack),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.toFileCaseScreen);
+                    },
+                    child: Text(
+                      "File Case",
+                      style: TextStyle(color: kWhite),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8), // Add some spacing between buttons
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Chat",
+                      style: TextStyle(color: kBlack),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
           const Text(
             "   About Me:",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -62,7 +98,11 @@ class LawyerScreenFileCase extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: LawyerAboutMeCard(),
-          )
+          ),
+          const Text(
+            "   Notable Cases:",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
         ],
       ),
     );

@@ -16,7 +16,7 @@ class IndividualDashboard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: const Text(
             "Currently Running Case:",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
         Padding(
@@ -27,7 +27,7 @@ class IndividualDashboard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: const Text(
             "Next Appearence:",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
         Padding(

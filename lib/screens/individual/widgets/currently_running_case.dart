@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 
 class CurrentlyRunningCase extends StatelessWidget {
   const CurrentlyRunningCase({super.key});
@@ -26,12 +27,12 @@ class CurrentlyRunningCase extends StatelessWidget {
                 children: [
                   const Text(
                     "Case ID: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "#12312",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -39,12 +40,12 @@ class CurrentlyRunningCase extends StatelessWidget {
                 children: [
                   const Text(
                     "Plantiff: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "User Sharma",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -52,12 +53,12 @@ class CurrentlyRunningCase extends StatelessWidget {
                 children: [
                   const Text(
                     "Process: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Ongoing",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -65,12 +66,12 @@ class CurrentlyRunningCase extends StatelessWidget {
                 children: [
                   const Text(
                     "Current Phase: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Court Trails",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -78,12 +79,12 @@ class CurrentlyRunningCase extends StatelessWidget {
                 children: [
                   const Text(
                     "Lawyer: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Lawyer Singh",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -92,7 +93,10 @@ class CurrentlyRunningCase extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, Routes.toIndividualCurrentlyRunningCase);
+                  },
                   child: const Text(
                     "View Details",
                     style: TextStyle(color: kWhite),
