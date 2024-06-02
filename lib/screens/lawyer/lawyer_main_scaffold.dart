@@ -24,6 +24,7 @@ class _LawyerMainScaffoldState extends State<LawyerMainScaffold> {
       _selectedIndex = index;
     });
   }
+
   Widget _getSelectedWidget() {
     switch (_selectedIndex) {
       case 0:
@@ -34,11 +35,12 @@ class _LawyerMainScaffoldState extends State<LawyerMainScaffold> {
         return FileCaseScreen(); // Replace with your actual widget
       case 3:
         return ScheduleScreen(); // Replace with your actual widget
-    // Replace with your actual widget
+      // Replace with your actual widget
       default:
         return PopularCaseScreen();
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +60,7 @@ class _LawyerMainScaffoldState extends State<LawyerMainScaffold> {
             padding: const EdgeInsets.all(11.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, Routes.toLawyerUserProfile);
+                Navigator.pushNamed(context, Routes.toUserProfileScreen);
               },
               child: Image.asset(
                 'assets/images/profile.png',
@@ -75,6 +77,5 @@ class _LawyerMainScaffoldState extends State<LawyerMainScaffold> {
         onItemTapped: _onItemTapped,
       ),
     );
-
   }
 }
