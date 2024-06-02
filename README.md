@@ -47,4 +47,4 @@ We welcome contributions from the community to enhance LegalSaathi further. To c
 
 ## Feedback
 
-If you have any feedback, suggestions, or issues with LegalSaathi, please feel free to [open an issue](https://github.com/ascoder1109/LegalSaathi/issues)
+If you have any feedback, suggestions, or issues with LegalSaathi, please feel free to [open an issue](https://github.com/ascoder1109/legalsaathi_app/issues)
