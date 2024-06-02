@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:legalsaathi/colors.dart';
 import 'package:legalsaathi/routes.dart';
+import 'package:legalsaathi/services/firebase_auth_service.dart';
+import 'package:legalsaathi/screens/individual/individual_main_scaffold.dart';
+import 'package:legalsaathi/screens/lawyer/lawyer_main_scaffold.dart';
 import 'package:svg_flutter/svg.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.dark));
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+    ));
+
+    final FirebaseAuthService _authService = FirebaseAuthService();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       backgroundColor: kWhite,
       body: Padding(
@@ -45,34 +54,33 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 64,
               ),
-              const TextField(
+              TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   label: Text("Email"),
                   hintText: "Enter your email",
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kGrey),
-                    // borderRadius: BorderRadius.circular(16),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kBlack),
-                    // borderRadius: BorderRadius.circular(16),
                   ),
                 ),
               ),
               const SizedBox(
                 height: 16,
               ),
-              const TextField(
+              TextField(
+                obscureText: true,
+                controller: passwordController,
                 decoration: InputDecoration(
                   label: Text("Password"),
                   hintText: "Enter your password",
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kGrey),
-                    // borderRadius: BorderRadius.circular(16),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kBlack),
-                    // borderRadius: BorderRadius.circular(16),
                   ),
                 ),
               ),
@@ -82,9 +90,44 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final errorMessage = await _authService.login(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
+                    if (errorMessage == null) {
+                      // Retrieve account type after successful login
+                      String? accountType = await _authService
+                          .getAccountType(emailController.text);
+                      if (accountType != null) {
+                        // Navigate to appropriate screen based on account type
+                        if (accountType == 'Individual') {
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              Routes.individualMainScaffold, (route) => false);
+                        } else if (accountType == 'Lawyer') {
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              Routes.toLawyerMainScaffold, (route) => false);
+                        }
+                      } else {
+                        // Account type not found, show an error message
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Account type not found.'),
+                          ),
+                        );
+                      }
+                    } else {
+                      // Login failed, show an error message
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(errorMessage),
+                        ),
+                      );
+                    }
+                  },
                   style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(kBlack)),
+                    backgroundColor: MaterialStateProperty.all(kBlack),
+                  ),
                   child: const Text(
                     "Login",
                     style: TextStyle(color: kWhite),

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
 import 'package:legalsaathi/routes.dart';
@@ -7,7 +8,9 @@ import 'package:legalsaathi/screens/individual/individual_dashboard.dart';
 import 'package:legalsaathi/screens/individual/individual_main_scaffold.dart';
 import 'package:legalsaathi/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

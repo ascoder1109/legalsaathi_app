@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
 import 'package:legalsaathi/routes.dart';
-import 'package:legalsaathi/screens/common/popular_case_screen.dart';
-import 'package:legalsaathi/screens/common/search_page.dart';
-import 'package:legalsaathi/screens/individual/individual_dashboard.dart';
-import 'package:legalsaathi/screens/individual/widgets/individual_bottom_navigation_bar.dart';
+import 'package:legalsaathi/screens/individual/file_case_screen.dart';
+import 'package:legalsaathi/screens/lawyer/lawyer_dashboard_screen.dart';
+import 'package:legalsaathi/screens/lawyer/schedule_screen.dart';
+import 'package:legalsaathi/screens/lawyer/widgets/lawyer_navigation_bar.dart';
 
-class IndividualMainScaffold extends StatefulWidget {
-  const IndividualMainScaffold({Key? key}) : super(key: key);
+import '../common/popular_case_screen.dart';
+import '../common/search_page.dart';
+
+class LawyerMainScaffold extends StatefulWidget {
+  const LawyerMainScaffold({super.key});
 
   @override
-  State<IndividualMainScaffold> createState() => _IndividualMainScaffoldState();
+  State<LawyerMainScaffold> createState() => _LawyerMainScaffoldState();
 }
 
-class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
+class _LawyerMainScaffoldState extends State<LawyerMainScaffold> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -21,23 +24,21 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
       _selectedIndex = index;
     });
   }
-
   Widget _getSelectedWidget() {
     switch (_selectedIndex) {
       case 0:
-        return IndividualDashboard();
+        return LawyerDashboardScreen();
       case 1:
         return SearchPage(); // Replace with your actual widget
       case 2:
-        return PopularCaseScreen(); // Replace with your actual widget
+        return FileCaseScreen(); // Replace with your actual widget
       case 3:
-        return PopularCaseScreen(); // Replace with your actual widget
-      // Replace with your actual widget
+        return ScheduleScreen(); // Replace with your actual widget
+    // Replace with your actual widget
       default:
-        return IndividualDashboard();
+        return PopularCaseScreen();
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
             padding: const EdgeInsets.all(11.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, Routes.toUserProfileScreen);
+                Navigator.pushNamed(context, Routes.toLawyerUserProfile);
               },
               child: Image.asset(
                 'assets/images/profile.png',
@@ -69,10 +70,11 @@ class _IndividualMainScaffoldState extends State<IndividualMainScaffold> {
         ],
       ),
       body: _getSelectedWidget(),
-      bottomNavigationBar: IndividualBottomNavigationBar(
+      bottomNavigationBar: LawyerNavigationBar(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
     );
+
   }
 }

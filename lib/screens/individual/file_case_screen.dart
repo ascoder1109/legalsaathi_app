@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:legalsaathi/colors.dart';
+import 'package:legalsaathi/routes.dart';
 import 'package:legalsaathi/screens/common/widgets/upload_relavent_documents.dart';
 
 class FileCaseScreen extends StatelessWidget {
@@ -56,12 +57,46 @@ class FileCaseScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
+              Row(
+                children: [
+                  const Text(
+                    "Court: ",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    "Siliguri Court",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  const Text(
+                    "Lawyer Name: ",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  Text(
+                    "Lawyer Singh",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
               const Text(
                 "Accused Name:",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const TextField(
                 decoration: InputDecoration(hintText: "Enter Accused Name"),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Enter Title",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+              const TextField(
+                decoration: InputDecoration(hintText: "Enter Title"),
               ),
               const SizedBox(height: 20),
               const Text(
@@ -97,7 +132,10 @@ class FileCaseScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.popAndPushNamed(
+                            context, Routes.toCaseFiledDelayScreen);
+                      },
                       style: ButtonStyle(
                         backgroundColor: WidgetStateProperty.all(kBlack),
                         foregroundColor: WidgetStateProperty.all(kWhite),

@@ -23,7 +23,7 @@ class PopularCasesCard extends StatelessWidget {
             children: [
               const Text(
                 "Kolkata Illegal Mining Case",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               const SizedBox(
                 height: 8,
@@ -32,12 +32,12 @@ class PopularCasesCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Case ID: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "#22852",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -45,12 +45,12 @@ class PopularCasesCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Plantiff: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Another User Sarkar",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -58,12 +58,12 @@ class PopularCasesCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Process: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Ongoing",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -71,12 +71,12 @@ class PopularCasesCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Current Phase: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Court Trails",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
@@ -84,12 +84,12 @@ class PopularCasesCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Lawyer: ",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                   Spacer(),
                   const Text(
                     "Lawyer Saha",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 15),
                   ),
                 ],
               ),
