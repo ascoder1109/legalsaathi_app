@@ -33,9 +33,6 @@ To run LegalSaathi on your device, follow these steps:
 <img src="https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/flutter/flutter-original.svg" title="Java" alt="Flutter" width="70" height="70"/>
 <img src="assets\images\spring-boot-logo.png" title="Springboot" alt="Springboot" width="135" height="70"/>
 
-## Download Link
-https://github.com/ascoder1109/legalsaathi_app/releases/download/main/legalsaathi.apk
-
 ## Contributing
 
 We welcome contributions from the community to enhance LegalSaathi further. To contribute, please follow these guidelines:
