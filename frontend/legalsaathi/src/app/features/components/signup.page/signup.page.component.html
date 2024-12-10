@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+</head>
+<body>
+    <app-topbar-with-logo></app-topbar-with-logo>
+    <main>
+        <mat-card appearance="outlined">
+            <mat-card-content>
+            <mat-card-title>Welcome :)</mat-card-title>
+            <mat-card-subtitle>Please enter your details</mat-card-subtitle>
+            <form>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your name</mat-label>
+                    <input matInput placeholder="Your name" type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter email</mat-label>
+                    <input matInput placeholder="Email" type="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter phone number</mat-label>
+                    <input matInput placeholder="Phone number" input type="text" pattern="[0-9]{10}">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter password</mat-label>
+                    <input matInput placeholder="Enter password" type="password">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput placeholder="Re-enter your password" type="password">
+                </mat-form-field>
+                <div class="login-button">
+                    <button mat-flat-button>Sign Up!</button>
+                </div>
+                <div class="goto-login-page-button">
+                    <button mat-button>Already have an account? Click here and login!</button>
+                </div>
+            </form>
+        </mat-card-content>
+        </mat-card>
+    </main>
+</body>
+</html>

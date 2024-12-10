@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <app-topbar-with-logo></app-topbar-with-logo>
+    <main>
+        <mat-card appearance="outlined">
+            <mat-card-content>
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-subtitle>Please enter login credentials</mat-card-subtitle>
+            <form>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter email or phone</mat-label>
+                    <input matInput placeholder="Email or phone">
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter password</mat-label>
+                    <input matInput placeholder="Enter password" type="password">
+                </mat-form-field>
+                <div class="login-button">
+                    <button mat-flat-button>Login</button>
+                </div>
+                <div class="goto-signup-page-button">
+                    <button mat-button>Don't have an account? Click here and sign up!</button>
+                </div>
+            </form>
+        </mat-card-content>
+        </mat-card>
+    </main>
+</body>
+</html>

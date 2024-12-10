@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+
+<body>
+    <nav>
+        <mat-toolbar>
+            <div class="left-section">
+                <div class="logo">
+                    <img src="../../../../assets/images/logo_with_black_bg.png" alt="Logo">
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-button">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+            </div>
+            <div class="icons">
+                <button class="icon-button">
+                    <span class="material-icons">notifications</span>
+                </button>
+                <button class="icon-button">
+                    <span class="material-icons">message</span>
+                </button>
+                <button class="icon-button">
+                    <span class="material-icons">account_circle</span>
+                </button>
+            </div>
+        </mat-toolbar>
+    </nav>
+    <main>
+        <div class="greeting">
+            Hello Aditya Singh!
+        </div>
+        <div class="sub-greeting">
+            How may I help you?
+        </div>
+        <div class="option-cards">
+            <mat-card class="option-card" appearance="outlined">
+                <mat-card-content>
+                    <mat-icon>search</mat-icon>
+                    <div class="card-title">Search a Lawyer</div>
+                    <div class="card-description">Find experienced legal professionals to assist with your case.</div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="option-card" appearance="outlined">
+                <mat-card-content>
+                    <mat-icon>forum</mat-icon>
+                    <div class="card-title">Online Forum</div>
+                    <div class="card-description">Join discussions with experts and peers on various legal topics.</div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="option-card" appearance="outlined">
+                <mat-card-content>
+                    <mat-icon>chat</mat-icon>
+                    <div class="card-title">AI Legal Assistance</div>
+                    <div class="card-description">Get instant legal advice powered by AI technology.</div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="option-card premium" appearance="outlined">
+                <mat-card-content>
+                    <mat-icon>star</mat-icon>
+                    <div class="card-title">Legalsaathi Premium</div>
+                    <div class="card-description">Exclusive services and priority support for premium users.</div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </main>
+</body>
+
+</html>
