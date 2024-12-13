@@ -8,10 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import { TopbarWithLogoAndSearchBarComponent } from "../../../shared/components/topbar-with-logo-and-search-bar/topbar-with-logo-and-search-bar.component";
 
 @Component({
   selector: 'app-user.dashboard.page',
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, CommonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatMenuModule],
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, CommonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatMenuModule, TopbarWithLogoAndSearchBarComponent],
   templateUrl: './user.dashboard.page.component.html',
   styleUrl: './user.dashboard.page.component.css'
 })

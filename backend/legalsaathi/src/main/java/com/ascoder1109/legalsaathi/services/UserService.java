@@ -50,4 +50,8 @@ public class UserService {
 
         return new ChangeRoleToLawyerResponseDTO("User role changed to Lawyer and profile created successfully", user.getId().toString());
     }
+
+    public User getUserByEmail(String email) {
+        return userRepositories.findByEmail(email).orElse(null); // Return user if found, or null if not
+    }
 }

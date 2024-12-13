@@ -67,7 +67,7 @@ public class AuthServiceImpl implements AuthService {
 
         String token = jwtUtils.generateToken(customUserDetails);
 
-        return new LoginResponseDTO(token, "Login successful");
+        return new LoginResponseDTO(token, "Login successful", user.getName(), user.getRole().toString());
     }
 
 

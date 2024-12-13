@@ -1,0 +1,55 @@
+body {
+   
+    margin: 0;
+    padding: 0;
+}
+
+mat-card {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding: 16px;
+   
+    max-width: 600px;
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+mat-card:hover {
+    transform: translateY(-4px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.card-actions {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.card-actions button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: color 0.2s; /* Smooth color transition */
+}
+
+.card-actions button:hover {
+    color: #000; /* Darker color on hover */
+}
+
+.card-actions button .material-icons {
+    margin-right: 4px;
+}
+
+mat-card-description {
+    color: #555;
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.6; /* Better readability */
+}

@@ -1,21 +1,53 @@
 import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import { CommonModule } from '@angular/common';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import { TopbarWithLogoComponent } from "../../../shared/components/topbar-with-logo/topbar-with-logo.component";
-
-
+import { Router } from '@angular/router';
+import { LoginRequestDTO } from '../../../core/dtos/LoginRequestDTO';
+import { LoginResponseDTO } from '../../../core/dtos/LoginResponseDTO';
+import { AuthService } from '../../../core/services/auth/service/auth.service';
 
 @Component({
   selector: 'app-login.page',
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, CommonModule, MatCardModule, MatFormFieldModule, MatInputModule, TopbarWithLogoComponent],
   templateUrl: './login.page.component.html',
-  styleUrl: './login.page.component.css'
+  styleUrls: ['./login.page.component.css'],
 })
 export class LoginPageComponent {
-  
+  loginRequest: LoginRequestDTO = {
+    email: '',
+    phoneNumber: '', 
+    password: '',   
+  };
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  onSubmit() {
+    // Validate input
+    if (!this.loginRequest.isValid()) {
+      alert('Please provide either email or phone number');
+      return;
+    }
+
+    this.authService.login(this.loginRequest).subscribe(
+      (response) => {
+        const loginResponse: LoginResponseDTO = response.data;
+        this.authService.saveUserDetails(loginResponse.token, {
+          name: loginResponse.name,
+          role: loginResponse.role,
+        });
+
+        // Redirect based on the role
+        if (loginResponse.role === 'USER') {
+          this.router.navigate(['/user-dashboard']);
+        } else if (loginResponse.role === 'LAWYER') {
+          this.router.navigate(['/lawyer-dashboard']);
+        }
+      },
+      (error) => {
+        console.error('Login failed:', error);
+        alert('Invalid credentials. Please try again.');
+      }
+    );
+  }
+
+  goToSignUp() {
+    this.router.navigate(['/sign-up']);  
+  }
 }
