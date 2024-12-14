@@ -8,33 +8,37 @@
 <body>
     <app-topbar-with-logo></app-topbar-with-logo>
     <main>
-        <app-topbar-with-logo></app-topbar-with-logo>
-<main>
-    <mat-card appearance="outlined">
-        <mat-card-content>
+        <mat-card appearance="outlined">
+            <mat-card-content>
             <mat-card-title>Login</mat-card-title>
             <mat-card-subtitle>Please enter login credentials</mat-card-subtitle>
             <form (ngSubmit)="onSubmit()">
                 <mat-form-field appearance="outline">
                     <mat-label>Enter email or phone</mat-label>
-                    <input matInput placeholder="Email or phone" [(ngModel)]="loginRequest.identifier" name="identifier" required>
+                    <input matInput placeholder="Email or phone" 
+                                [(ngModel)]="loginRequest.email" 
+                                name="identifier" 
+                                required 
+                                [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
-
+            
                 <mat-form-field appearance="outline">
                     <mat-label>Enter password</mat-label>
-                    <input matInput placeholder="Enter password" type="password" [(ngModel)]="loginRequest.password" name="password" required>
+                    <input matInput placeholder="Enter password" 
+                                type="password" 
+                                [(ngModel)]="loginRequest.password" 
+                                name="password" 
+                                required>
                 </mat-form-field>
                 <div class="login-button">
-                    <button mat-flat-button type="submit">Login</button>
+                    <button mat-flat-button>Login</button>
                 </div>
                 <div class="goto-signup-page-button">
                     <button mat-button (click)="goToSignUp()">Don't have an account? Click here and sign up!</button>
                 </div>
             </form>
         </mat-card-content>
-    </mat-card>
-</main>
-
+        </mat-card>
     </main>
 </body>
 </html>

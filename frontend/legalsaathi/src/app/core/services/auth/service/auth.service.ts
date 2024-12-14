@@ -5,64 +5,96 @@ import { ApiResponse } from '../../../dtos/ApiResponse';
 import { LoginRequestDTO } from '../../../dtos/LoginRequestDTO';
 import { LoginResponseDTO } from '../../../dtos/LoginResponseDTO';
 import { RegisterRequestDTO } from '../../../dtos/RegisterRequestDTO';
-import { User } from '../../../models/User';
+
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    private apiUrl = 'http://localhost:8080/api';
+
+    private apiUrl = "http://localhost:8080/api/auth";
 
     constructor(private http: HttpClient) { }
 
 
     private createHeaders(): HttpHeaders {
-        const apiName = 'LEGALSAATHI_AUTH_API';
-        const apiKey = 'io24r8134ut89wndf89j2190rfjq0w9ndf8i';
+        const apiName = "LEGALSAATHI_AUTH_API";
+        const apiKey = "io24r8134ut89wndf89j2190rfjq0w9ndf8i";
+
         return new HttpHeaders({
             'API_NAME': apiName,
-            'API_KEY': apiKey
+            'API_KEY': apiKey,
+            'Content-Type': 'application/json'
         });
     }
-    
-    
-    register(registerRequest: RegisterRequestDTO): Observable<ApiResponse<string>> {
+
+    registerUser(registerRequestDTO: RegisterRequestDTO): Observable<ApiResponse<LoginResponseDTO>> {
+        const url = `${this.apiUrl}/register`;
         const headers = this.createHeaders();
-        return this.http.post<ApiResponse<string>>(`${this.apiUrl}/auth/register`, registerRequest, { headers });
+        return this.http.post<ApiResponse<LoginResponseDTO>>(url, registerRequestDTO, { headers });
     }
 
-    
-    login(loginRequest: LoginRequestDTO): Observable<ApiResponse<LoginResponseDTO>> {
+    loginUser(loginRequestDTO: LoginRequestDTO): Observable<ApiResponse<LoginResponseDTO>> {
+        const url = `${this.apiUrl}/login`;
         const headers = this.createHeaders();
-        return this.http.post<ApiResponse<LoginResponseDTO>>(`${this.apiUrl}/auth/login`, loginRequest, { headers });
+        const isEmail = loginRequestDTO.email ? this.isValidEmail(loginRequestDTO.email) : false;
+        const isPhoneNumber = loginRequestDTO.phoneNumber ? this.isValidPhoneNumber(loginRequestDTO.phoneNumber) : false;
+    
+        if (!isEmail && !isPhoneNumber) {
+            throw new Error('Invalid email or phone number format.');
+        }
+    
+        const loginRequest: any = {};
+    
+        if (isEmail) {
+            loginRequest.email = loginRequestDTO.email;
+        } else if (isPhoneNumber) {
+            loginRequest.phoneNumber = loginRequestDTO.phoneNumber;
+        }
+    
+        loginRequest.password = loginRequestDTO.password;
+    
+        return this.http.post<ApiResponse<LoginResponseDTO>>(url, loginRequest, { headers });
     }
 
-
-    saveUserDetails(token: string, user: User): void {
-        localStorage.setItem('authToken', token);
-        localStorage.setItem('userDetails', JSON.stringify(user));
+    private isValidEmail(identifier: string): boolean {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(identifier);
     }
 
-
-    getToken(): string | null {
-        return localStorage.getItem('authToken');
+    private isValidPhoneNumber(identifier: string): boolean {
+        const phoneRegex = /^\d{10}$/;
+        return phoneRegex.test(identifier);
     }
 
+    storeUserDetails(response: ApiResponse<LoginResponseDTO>) {
+        if (response.status === 'success') {
+            const token = response.data.token;
+            const userDetails = {
+                name: response.data.name,
+                role: response.data.role,
+                token: token
+            };
 
-    getUserDetails(): User | null {
+            localStorage.setItem('authToken', token);
+            localStorage.setItem('userDetails', JSON.stringify(userDetails));
+        }
+    }
+
+    getUserDetails() {
         const userDetails = localStorage.getItem('userDetails');
         return userDetails ? JSON.parse(userDetails) : null;
     }
 
 
-    logout(): void {
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('userDetails');
+    isLoggedIn(): boolean {
+        const token = localStorage.getItem('authToken');
+        return !!token;
     }
 
 
-    isAuthenticated(): boolean {
-        const token = this.getToken();
-        return token != null;
+    logout() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userDetails');
     }
 }

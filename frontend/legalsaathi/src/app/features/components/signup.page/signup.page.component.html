@@ -7,41 +7,47 @@
 </head>
 <body>
     <app-topbar-with-logo></app-topbar-with-logo>
-    <main>
-        <mat-card appearance="outlined">
-            <mat-card-content>
+   
+<main>
+    <mat-card appearance="outlined">
+        <mat-card-content>
             <mat-card-title>Welcome :)</mat-card-title>
             <mat-card-subtitle>Please enter your details</mat-card-subtitle>
-            <form>
+
+            <!-- Add ngForm for form submission -->
+            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
                 <mat-form-field appearance="outline">
                     <mat-label>Enter your name</mat-label>
-                    <input matInput placeholder="Your name" type="text">
+                    <input matInput placeholder="Your name" type="text" name="name" ngModel required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Enter email</mat-label>
-                    <input matInput placeholder="Email" type="email">
+                    <input matInput placeholder="Email" type="email" name="email" ngModel required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Enter phone number</mat-label>
-                    <input matInput placeholder="Phone number" input type="text" pattern="[0-9]{10}">
+                    <input matInput placeholder="Phone number" type="text" name="phoneNumber" ngModel required pattern="^[0-9]{10}$">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Enter password</mat-label>
-                    <input matInput placeholder="Enter password" type="password">
+                    <input matInput placeholder="Enter password" type="password" name="password" ngModel required>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm password</mat-label>
-                    <input matInput placeholder="Re-enter your password" type="password">
+                    <input matInput placeholder="Re-enter your password" type="password" name="confirmPassword" ngModel required>
                 </mat-form-field>
+
                 <div class="login-button">
-                    <button mat-flat-button>Sign Up!</button>
+                    <button mat-flat-button type="submit" [disabled]="signupForm.invalid">Sign Up!</button>
                 </div>
-                <div class="goto-login-page-button">
-                    <button mat-button>Already have an account? Click here and login!</button>
-                </div>
+                
             </form>
+            <div class="goto-login-page-button">
+                <button mat-button (click)="goToLogin()">Already have an account? Click here and login!</button>
+            </div>
         </mat-card-content>
-        </mat-card>
-    </main>
+    </mat-card>
+</main>
+
 </body>
 </html>
